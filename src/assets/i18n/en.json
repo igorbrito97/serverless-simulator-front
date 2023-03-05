@@ -1,0 +1,21 @@
+{
+    "TITLE": "SERVERLESS FUNCTIONS SIMULATOR",
+    "LANGUAGE": "Language",
+    "SIMULATION_FORM": {
+        "TITLE": "SIMULATION FORM",
+        "SUBTITLE": "Fill in the simulation data",
+        "ARRIVAL_RATE_TEXT": "Arrival Rate",
+        "ARRIVAL_RATE_TOOLTIP": "Request's arrival rate",
+        "WARM_TIME_TEXT": "Average Warm Response Time",
+        "WARM_TIME_TOOLTIP": "",
+        "COLD_TIME_TEXT": "Average Cold Response Time",
+        "COLD_TIME_TOOLTIP": "",
+        "THRESHOLD_TEXT": "Expiration Threshold",
+        "THRESHOLD_TOOLTIP": "",
+        "SIMULATION_TIME_TEXT": "Simulation Time",
+        "SIMULATION_TIME_TOOLTIP": "",
+        "SKIP_INITIAL_TIME_TEXT": "Skip Initial Time",
+        "SKIP_INITIAL_TIME_TOOLTIP": "",
+        "START_SIMULATION_BUTTON": "Next"
+    }
+}

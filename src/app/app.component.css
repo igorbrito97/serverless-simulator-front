@@ -1,0 +1,16 @@
+.title-text {
+    color: #2a3541;
+    font-weight: bold;
+    font-size: 20px;
+    padding-left: 20px;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.language-select {
+    font-size: 10px;
+    width: 100px;
+}
+

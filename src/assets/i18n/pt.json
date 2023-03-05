@@ -1,0 +1,21 @@
+{
+    "TITLE": "SIMULADOR DE FUNÇÕES SERVERLESS",
+    "LANGUAGE": "Idioma",
+    "SIMULATION_FORM": {
+        "TITLE": "FORMULÁRIO DO SIMULADOR",
+        "SUBTITLE": "Preencha as informações",
+        "ARRIVAL_RATE_TEXT": "Taxa de Chegada",
+        "ARRIVAL_RATE_TOOLTIP": "Taxa de chegada das requisições. Requisições por segundo",
+        "WARM_TIME_TEXT": "Tempo médio de resposta quente",
+        "WARM_TIME_TOOLTIP": "Tempo médio de resposta quente. Em segundos",
+        "COLD_TIME_TEXT": "Tempo médio de resposta fria",
+        "COLD_TIME_TOOLTIP": "Tempo médio de resposta fria. Em segundos",
+        "THRESHOLD_TEXT": "Tempo limite de expiração",
+        "THRESHOLD_TOOLTIP": "Tempo limite para expirar. Em segundos",
+        "SIMULATION_TIME_TEXT": "Tempo de simulação",
+        "SIMULATION_TIME_TOOLTIP": "Tempo total de simulação. Em segundos",
+        "SKIP_INITIAL_TIME_TEXT": "Pular o tempo inicial",
+        "SKIP_INITIAL_TIME_TOOLTIP": "Tempo que deve ser pulado no inicio da simulaçao. Em segundos",
+        "START_SIMULATION_BUTTON": "Avançar"
+    }
+}

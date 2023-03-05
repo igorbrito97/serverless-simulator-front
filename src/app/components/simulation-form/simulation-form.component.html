@@ -1,0 +1,101 @@
+<mat-card class="card-container">
+    <mat-card-title>{{ 'SIMULATION_FORM.TITLE' | translate }}</mat-card-title>
+    <mat-card-subtitle>{{ 'SIMULATION_FORM.SUBTITLE' | translate }}</mat-card-subtitle>
+    <mat-card-content>
+        <form class="form">
+            <mat-grid-list cols="3" rowHeight="2:1">
+                <mat-grid-tile>
+                    <mat-form-field class="form-input">
+                        <label for="arrivalRate">{{ 'SIMULATION_FORM.ARRIVAL_RATE_TEXT' | translate }}:</label>
+                        <button mat-icon-button matTooltip="{{ 'SIMULATION_FORM.ARRIVAL_RATE_TOOLTIP' | translate }}" matTooltipHideDelay="10000"
+                            matTooltipPosition="above">
+                            <mat-icon>info</mat-icon>
+                        </button>
+                        <input matInput type="number" min="0" max="50.5" [(ngModel)]="form.arrivalRate" [ngModelOptions]="{standalone: true}">
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field class="form-input">
+                        <label for="avgWarmTime">{{ 'SIMULATION_FORM.WARM_TIME_TEXT' | translate }}:</label>
+                        <button mat-icon-button matTooltip="{{ 'SIMULATION_FORM.WARM_TIME_TOOLTIP' | translate }}" matTooltipHideDelay="10000"
+                            matTooltipPosition="above">
+                            <mat-icon>info</mat-icon>
+                        </button>
+                        <input matInput [(ngModel)]="form.warmResponseTime" [ngModelOptions]="{standalone: true}">
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field class="form-input">
+                        <label for="avgColdTime">{{ 'SIMULATION_FORM.COLD_TIME_TEXT' | translate }}:</label>
+                        <button mat-icon-button matTooltip="{{ 'SIMULATION_FORM.COLD_TIME_TOOLTIP' | translate }}" matTooltipHideDelay="10000"
+                            matTooltipPosition="above">
+                            <mat-icon>info</mat-icon>
+                        </button>
+                        <input matInput [(ngModel)]="form.coldResponseTime" [ngModelOptions]="{standalone: true}">
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field class="form-input">
+                        <label for="expirationThreshold">{{ 'SIMULATION_FORM.THRESHOLD_TEXT' | translate }}:</label>
+                        <button mat-icon-button matTooltip="{{ 'SIMULATION_FORM.THRESHOLD_TOOLTIP' | translate }}" matTooltipHideDelay="10000"
+                            matTooltipPosition="above">
+                            <mat-icon>info</mat-icon>
+                        </button>
+                        <input matInput [(ngModel)]="form.threshold" [ngModelOptions]="{standalone: true}">
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field class="form-input">
+                        <label for="simulationTime">{{ 'SIMULATION_FORM.SIMULATION_TIME_TEXT' | translate }}:</label>
+                        <button mat-icon-button matTooltip="{{ 'SIMULATION_FORM.SIMULATION_TIME_TOOLTIP' | translate }}" matTooltipHideDelay="10000"
+                            matTooltipPosition="above">
+                            <mat-icon>info</mat-icon>
+                        </button>
+                        <input matInput type="number" [(ngModel)]="form.simulationTime" [ngModelOptions]="{standalone: true}">
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field class="form-input">
+                        <label for="skipInitialTime">{{ 'SIMULATION_FORM.SKIP_INITIAL_TIME_TEXT' | translate }}:</label>
+                        <button mat-icon-button matTooltip="{{ 'SIMULATION_FORM.SKIP_INITIAL_TIME_TOOLTIP' | translate }}" matTooltipHideDelay="10000"
+                            matTooltipPosition="above">
+                            <mat-icon>info</mat-icon>
+                        </button>
+                        <input matInput [(ngModel)]="form.skipInitialTime" [ngModelOptions]="{standalone: true}"> 
+                    </mat-form-field>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </form>
+        <!-- AGORA PRECISA SABER QUAIS SÃO OS CAMPOS......
+
+          parametros: 
+        Arrival Rate 0.9 req/s
+        Average Warm Response Time - Warm Service Time 1.991 s 
+        Average Cold Response Time - Cold Service Time 2.244 s
+        Expiration Threshold 10 min
+        Simulation Time 10 6 s
+        Skip Initial Time 100 s
+
+        output: * = SimFaas - outro é Performance Modeling
+        *Cold Start Probability 0.14 %
+        *Rejection Probability 0%
+        *Average Instance Lifespan 6307.7389 s
+        *Average Server Count 7.6795
+        *Average Running Servers 1.7902
+        *Average Idle Count 5.8893
+
+        Average Response Time
+        Mean Number of Instances in Warm Pool
+        Mean Number of Idle Servers
+        Mean Number of Running Instances
+        Mean Utilization
+
+        -> talvez atribuir um maximo ou minimo pra alguns campos
+        -> colocar no hint em baixo o valor "formatado"
+
+        Ideia: talvez preços ???? ai vai depender de provedora e serviço  -->
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button (click)="runSimulation()">{{ 'SIMULATION_FORM.START_SIMULATION_BUTTON' | translate }}</button>
+    </mat-card-actions>
+</mat-card>
