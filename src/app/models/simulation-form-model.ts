@@ -4,5 +4,4 @@ export interface SimulationFormModel {
     coldResponseTime: number;
     threshold: number;
     simulationTime: number;
-    skipInitialTime: number;
 }

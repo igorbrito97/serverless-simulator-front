@@ -1,9 +1,10 @@
 <mat-card class="card-container">
-    <mat-card-title>{{ 'SIMULATION_FORM.TITLE' | translate }}</mat-card-title>
-    <mat-card-subtitle>{{ 'SIMULATION_FORM.SUBTITLE' | translate }}</mat-card-subtitle>
+    <mat-card-title *ngIf="results == null">{{ 'SIMULATION_FORM.TITLE' | translate }}</mat-card-title>
+    <mat-card-title *ngIf="results != null">{{ 'RESULTS_FORM.TITLE' | translate }}</mat-card-title>
+    <mat-card-subtitle *ngIf="results == null">{{ 'SIMULATION_FORM.SUBTITLE' | translate }}</mat-card-subtitle>
     <mat-card-content>
         <form class="form">
-            <mat-grid-list cols="3" rowHeight="2:1">
+            <mat-grid-list cols="3" rowHeight="2:1" *ngIf="results == null">
                 <mat-grid-tile>
                     <mat-form-field class="form-input">
                         <label for="arrivalRate">{{ 'SIMULATION_FORM.ARRIVAL_RATE_TEXT' | translate }}:</label>
@@ -54,48 +55,91 @@
                         <input matInput type="number" [(ngModel)]="form.simulationTime" [ngModelOptions]="{standalone: true}">
                     </mat-form-field>
                 </mat-grid-tile>
+            </mat-grid-list>
+
+            <mat-grid-list cols="3" rowHeight="2:1" *ngIf="results != null">
                 <mat-grid-tile>
-                    <mat-form-field class="form-input">
-                        <label for="skipInitialTime">{{ 'SIMULATION_FORM.SKIP_INITIAL_TIME_TEXT' | translate }}:</label>
-                        <button mat-icon-button matTooltip="{{ 'SIMULATION_FORM.SKIP_INITIAL_TIME_TOOLTIP' | translate }}" matTooltipHideDelay="10000"
-                            matTooltipPosition="above">
-                            <mat-icon>info</mat-icon>
-                        </button>
-                        <input matInput [(ngModel)]="form.skipInitialTime" [ngModelOptions]="{standalone: true}"> 
-                    </mat-form-field>
+                    <mat-card>
+                        <mat-card-content>
+                            {{ 'RESULTS_FORM.COLD_INSTANCE_COUNT' | translate }} {{ results.coldInstancesCount }}
+                        </mat-card-content>
+                    </mat-card>
                 </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-card>
+                        <mat-card-content>
+                            {{ 'RESULTS_FORM.WARM_INSTANCE_COUNT' | translate }} {{ results.warmInstancesCount }}
+                        </mat-card-content>
+                    </mat-card>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-card>
+                        <mat-card-content>
+                            {{ 'RESULTS_FORM.REQUESTS_COUNT' | translate }} {{ results.requestsCount }}
+                        </mat-card-content>
+                    </mat-card>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-card>
+                        <mat-card-content>
+                            {{ 'RESULTS_FORM.REJECTED_COUNT' | translate }} {{ results.rejectedCount }}
+                        </mat-card-content>
+                    </mat-card>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-card>
+                        <mat-card-content>
+                            {{ 'RESULTS_FORM.COLD_PROBABILITY' | translate }} {{ results.coldProbability }}
+                        </mat-card-content>
+                    </mat-card>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-card>
+                        <mat-card-content>
+                            {{ 'RESULTS_FORM.REJECTED_PROBABILITY' | translate }} {{ results.rejectionProbability }}
+                        </mat-card-content>
+                    </mat-card>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-card>
+                        <mat-card-content>
+                            {{ 'RESULTS_FORM.WARM_PROBABILITY' | translate }} {{ results.warmProbability }}
+                        </mat-card-content>
+                    </mat-card>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-card>
+                        <mat-card-content>
+                            {{ 'RESULTS_FORM.AVERAGE_INSTANCE_LIFESPAN' | translate }} {{ results.averageInstanceLifespan }}
+                        </mat-card-content>
+                    </mat-card>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-card>
+                        <mat-card-content>
+                            {{ 'RESULTS_FORM.AVERAGE_INSTANCE_COUNT' | translate }} {{ results.averageServerCount }}
+                        </mat-card-content>
+                    </mat-card>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-card>
+                        <mat-card-content>
+                            {{ 'RESULTS_FORM.AVERAGE_RUNNING_COUNT' | translate }} {{ results.averageRunningServers }}
+                        </mat-card-content>
+                    </mat-card>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-card>
+                        <mat-card-content>
+                            {{ 'RESULTS_FORM.AVERAGE_IDLE_COUNT' | translate }} {{ results.averageIdleCount }}
+                        </mat-card-content>
+                    </mat-card>
+                </mat-grid-tile>            
             </mat-grid-list>
         </form>
-        <!-- AGORA PRECISA SABER QUAIS SÃO OS CAMPOS......
-
-          parametros: 
-        Arrival Rate 0.9 req/s
-        Average Warm Response Time - Warm Service Time 1.991 s 
-        Average Cold Response Time - Cold Service Time 2.244 s
-        Expiration Threshold 10 min
-        Simulation Time 10 6 s
-        Skip Initial Time 100 s
-
-        output: * = SimFaas - outro é Performance Modeling
-        *Cold Start Probability 0.14 %
-        *Rejection Probability 0%
-        *Average Instance Lifespan 6307.7389 s
-        *Average Server Count 7.6795
-        *Average Running Servers 1.7902
-        *Average Idle Count 5.8893
-
-        Average Response Time
-        Mean Number of Instances in Warm Pool
-        Mean Number of Idle Servers
-        Mean Number of Running Instances
-        Mean Utilization
-
-        -> talvez atribuir um maximo ou minimo pra alguns campos
-        -> colocar no hint em baixo o valor "formatado"
-
-        Ideia: talvez preços ???? ai vai depender de provedora e serviço  -->
     </mat-card-content>
     <mat-card-actions>
-        <button mat-button (click)="runSimulation()">{{ 'SIMULATION_FORM.START_SIMULATION_BUTTON' | translate }}</button>
+        <button mat-button (click)="runSimulation()" *ngIf="results == null">{{ 'SIMULATION_FORM.START_SIMULATION_BUTTON' | translate }}</button>
+        <button mat-button (click)="clearSimulation()" *ngIf="results != null">{{ 'RESULTS_FORM.BACK_BUTTON' | translate }}</button>
     </mat-card-actions>
 </mat-card>

@@ -14,8 +14,21 @@
         "THRESHOLD_TOOLTIP": "",
         "SIMULATION_TIME_TEXT": "Simulation Time",
         "SIMULATION_TIME_TOOLTIP": "",
-        "SKIP_INITIAL_TIME_TEXT": "Skip Initial Time",
-        "SKIP_INITIAL_TIME_TOOLTIP": "",
         "START_SIMULATION_BUTTON": "Next"
+    },
+    "RESULTS_FORM" : {
+        "TITLE": "RESULTADOS DA SIMULAÇÂO",
+        "COLD_INSTANCE_COUNT": "",
+        "WARM_INSTANCE_COUNT": "",
+        "REQUESTS_COUNT": "",
+        "REJECTED_COUNT": "",
+        "COLD_PROBABILITY": "",
+        "REJECTED_PROBABILITY": "",
+        "WARM_PROBABILITY": "",
+        "AVERAGE_INSTANCE_LIFESPAN": "",
+        "AVERAGE_INSTANCE_COUNT": "",
+        "AVERAGE_RUNNING_COUNT": "",
+        "AVERAGE_IDLE_COUNT": "",
+        "BACK_BUTTON": "Back"
     }
 }

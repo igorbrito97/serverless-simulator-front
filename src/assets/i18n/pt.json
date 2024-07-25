@@ -14,8 +14,21 @@
         "THRESHOLD_TOOLTIP": "Tempo limite para expirar. Em segundos",
         "SIMULATION_TIME_TEXT": "Tempo de simulação",
         "SIMULATION_TIME_TOOLTIP": "Tempo total de simulação. Em segundos",
-        "SKIP_INITIAL_TIME_TEXT": "Pular o tempo inicial",
-        "SKIP_INITIAL_TIME_TOOLTIP": "Tempo que deve ser pulado no inicio da simulaçao. Em segundos",
         "START_SIMULATION_BUTTON": "Avançar"
+    },
+    "RESULTS_FORM" : {
+        "TITLE": "RESULTADOS DA SIMULAÇÂO",
+        "COLD_INSTANCE_COUNT": "Quantidade de instâncias frias:",
+        "WARM_INSTANCE_COUNT": "Quantidade de instâncias quentes:",
+        "REQUESTS_COUNT": "Quantidade de requisições:",
+        "REJECTED_COUNT": "Quantidade de requisições rejeitadas:",
+        "COLD_PROBABILITY": "Probabilidade de ínicio frio:",
+        "REJECTED_PROBABILITY": "Probabilidade de rejeição:",
+        "WARM_PROBABILITY": "Probabilidade de ínicio quente:",
+        "AVERAGE_INSTANCE_LIFESPAN": "Tempo médio de vida das instâncias:",
+        "AVERAGE_INSTANCE_COUNT": "Quantidade média de instâncias:",
+        "AVERAGE_RUNNING_COUNT": "Quantidade média de instâncias executando:",
+        "AVERAGE_IDLE_COUNT": "Quantidade média de instâncias em espera:",
+        "BACK_BUTTON": "Voltar"
     }
 }
